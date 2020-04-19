@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "3f8e330e-6820-493e-9e40-947441c13c07",
+		"name": "Casino Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Casino",
+			"item": [
+				{
+					"name": "List Casinos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/casinos/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casinos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Casino",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/casinos?name=Casino1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casinos"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Casino1"
+								},
+								{
+									"key": "balance",
+									"value": "1000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get casino",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "61c5a024-7aa9-46df-9296-919f50e25868",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/casinos/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casinos",
+								"3"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Dealer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/dealers?name=Dealer 11&casinoId=3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dealers"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dealer 11"
+								},
+								{
+									"key": "casinoId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all dealers for casino",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/casinos/3/dealers/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"casinos",
+								"3",
+								"dealers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDealer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/dealers/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dealers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/games?casinoId=3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"games"
+							],
+							"query": [
+								{
+									"key": "casinoId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place bet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/bets?gameId=1&amount=1000&userId=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bets"
+							],
+							"query": [
+								{
+									"key": "gameId",
+									"value": "1"
+								},
+								{
+									"key": "amount",
+									"value": "1000"
+								},
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Bets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join casino",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c4bbd289-104b-4646-8aa6-0925ad8d9689",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d4e7188d-08df-4e13-9d8c-26c0e28b96d7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "Start Game",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop game and throw number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fba0cca3-5789-449d-a0b2-a795e5c045db",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ed08cc26-e181-42fe-a498-aa7d45f03499",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "90c376ed-8241-442a-aafa-53eeb2ae1ac7",
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
