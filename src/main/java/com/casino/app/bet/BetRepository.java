@@ -6,11 +6,8 @@ import java.util.List;
 
 import com.casino.app.casino.CasinoRepository;
 import com.casino.app.db.BaseRepository;
-import com.casino.app.exception.ApiException;
 import com.casino.app.game.GameRepository;
 import com.casino.app.objects.Bet;
-import com.casino.app.objects.Game;
-import com.casino.app.objects.User;
 import com.casino.app.user.UserRepository;
 import com.casino.jooq.db.tables.Bets;
 

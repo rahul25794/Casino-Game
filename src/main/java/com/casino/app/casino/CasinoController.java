@@ -3,8 +3,10 @@ package com.casino.app.casino;
 import java.util.List;
 
 import com.casino.app.dealer.DealerRepository;
+import com.casino.app.game.GameRepository;
 import com.casino.app.objects.Casino;
 import com.casino.app.objects.Dealer;
+import com.casino.app.objects.Game;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,8 @@ public class CasinoController {
     public CasinoRepository casinoRepo;
     @Autowired
     public DealerRepository dealerRepo;
+    @Autowired
+    public GameRepository gameRepo;
 
     @GetMapping()
     public List<Casino> list() throws Exception {
@@ -46,10 +50,8 @@ public class CasinoController {
     public List<Dealer> listDealers(@PathVariable(value = "id", required = true) Integer id) throws Exception {
         return dealerRepo.list(id);
     }
-
-    @PostMapping(value = "/{id}/dealers")
-    public Dealer addDealer(@PathVariable(value = "id", required = true) Integer casino,
-            @RequestParam(required = true) String name) throws Exception {
-        return dealerRepo.create(name, casino);
+    @GetMapping(value = "/{id}/games")
+    public List<Game> listGames(@PathVariable(value = "id", required = true) Integer id) throws Exception {
+        return gameRepo.getAllOpen(id);
     }
 }

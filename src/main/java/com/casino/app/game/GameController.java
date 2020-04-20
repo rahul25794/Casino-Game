@@ -26,7 +26,7 @@ public class GameController {
     public GameService gameService;
 
     @GetMapping()
-    public List<Game> listGames(@RequestParam(required = true) Integer casinoId) throws Exception {
+    public List<Game> listOpenGames(@RequestParam(required = true) Integer casinoId) throws Exception {
         return gameRepo.getAllOpen(casinoId);
     }
 

@@ -1,9 +1,6 @@
 package com.casino.app.dealer;
 
 import java.util.List;
-
-import com.casino.app.dealer.DealerRepository;
-import com.casino.app.objects.Casino;
 import com.casino.app.objects.Dealer;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +21,10 @@ public class DealerController {
     @GetMapping(value = "/{id}")
     public Dealer get(@PathVariable(value = "id", required = true) Integer id) throws Exception {
         return dealerRepo.get(id);
+    }
+    @GetMapping()
+    public List<Dealer> getAllDealers(@RequestParam(required = true) Integer casinoId) throws Exception {
+        return dealerRepo.list(casinoId);
     }
 
     @PostMapping()

@@ -1,10 +1,9 @@
 package com.casino.app.bet;
 
-import com.casino.app.exception.ApiException;
+import java.util.List;
+
 import com.casino.app.game.GameRepository;
 import com.casino.app.objects.Bet;
-import com.casino.app.objects.Game;
-import com.casino.app.objects.User;
 import com.casino.app.user.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,11 @@ public class BetController {
     }
 
     @GetMapping(value = "/{id}")
-    public Bet getAllBets(@PathVariable(value = "id", required = true) Integer id) throws Exception {
+    public Bet get(@PathVariable(value = "id", required = true) Integer id) throws Exception {
         return betRepo.get(id);
+    }
+    @GetMapping()
+    public List<Bet> getAllBets(@RequestParam(required = true) Integer userId) throws Exception {
+        return betRepo.getAllBetsForUser(userId);
     }
 }

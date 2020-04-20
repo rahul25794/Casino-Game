@@ -1,14 +1,12 @@
 package com.casino.app.user;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import com.casino.app.db.BaseRepository;
 import com.casino.app.exception.ApiException;
 import com.casino.app.objects.Bet;
 import com.casino.app.objects.User;
 import com.casino.jooq.db.tables.Users;
-import com.casino.jooq.db.tables.records.UsersRecord;
 
 import org.jooq.BatchBindStep;
 import org.jooq.DSLContext;
