@@ -29,7 +29,7 @@ public class GameService {
         if(game.status!=Game.STATUS.OPEN){
             throw new ApiException("Game is already closed");
         }
-        Integer number = 2;//new Random().nextInt(35) + 1;
+        Integer number = new Random().nextInt(35) + 1;
         List<Bet> bets = betRepo.updateWonBets(id, number);
         betRepo.updateLostBets(id, number);
         userRepo.updateWonBetBalance(bets);
