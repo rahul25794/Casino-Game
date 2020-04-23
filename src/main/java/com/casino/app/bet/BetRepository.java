@@ -54,6 +54,14 @@ public class BetRepository extends BaseRepository<Bet>{
             .values(userId, gameId, amount, Timestamp.from(Instant.now()),number)
             .returning().fetchOne().into(Bet.class);
     }
+    public List<Bet> getWonBets(Integer gameId,Integer number) throws Exception{
+        List<Bet> bets= DB.select()
+            .from(TBL)
+            .where(TBL.GAMEID.eq(gameId)
+                .and(TBL.NUMBER.eq(number)))
+            .fetchInto(Bet.class);
+        return bets;
+    }
     public List<Bet> updateWonBets(Integer gameId,Integer number) throws Exception{
         DB.update(TBL)
             .set(TBL.STATUS, Bet.STATUS.WON.name())

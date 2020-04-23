@@ -30,13 +30,14 @@ public class GameService {
             throw new ApiException("Game is already closed");
         }
         Integer number = new Random().nextInt(35) + 1;
-        List<Bet> bets = betRepo.updateWonBets(id, number);
-        betRepo.updateLostBets(id, number);
-        userRepo.updateWonBetBalance(bets);
+        List<Bet> bets = betRepo.getWonBets(id, number);
         Double sum = bets.stream().map(bet -> {
             return bet.amount*2;
         }).reduce(0.0, Double::sum);
         casinoRepo.subtractBalance(game.casinoId, sum);
+        betRepo.updateWonBets(id, number);
+        betRepo.updateLostBets(id, number);
+        userRepo.updateWonBetBalance(bets);
         return gameRepo.stop(id, number);
     }
 }
